@@ -47,26 +47,28 @@ const SellNFTCard: FC<SellNFTCardProps> = ({ price, onUpdatePrice, id }) => {
     };
 
     return (
-        <div className="relative bg-gray-800 text-white p-6 rounded-lg w-6/12 shadow-md mt-4">
+        <div className="relative bg-gray-800 text-white p-6 rounded-lg w-6/12 shadow-md mt-4 w-full">
             <h1 className="text-2xl font-semibold mb-2 ">Sell NFT</h1>
 
-            <div>
-                <label className="font-bold text-xl">Price</label>
-                <input
-                    className=" ml-2 bg-gray-800 w-20"
-                    placeholder="Recipient Address"
-                    type="number"
-                    value={price}
-                    onChange={handlePriceChange}
-                />
+            <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
+                    <label className="font-bold text-xl">Price</label>
+                    <input
+                        className="ml-2 bg-gray-800 w-20"
+                        placeholder="Recipient Address"
+                        type="number"
+                        value={price}
+                        onChange={handlePriceChange}
+                    />
+                </div>
+                <button
+                    onClick={handleListing}
+                    className="bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                    List
+                </button>
             </div>
 
-            <button
-                onClick={handleListing}
-                className="mt-4 bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-                List
-            </button>
             {(roleError as unknown as boolean) || 
             (listError as unknown as boolean) ? (
                 <div className="text-center mt-4">Error listing!</div>
